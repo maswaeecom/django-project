@@ -233,7 +233,7 @@
                                 
                                 <div class="view-profile">
                                     
-                                    <a href="" class="btn btn-secondary btn-block">View/Edit Profile</a>
+                                    <a href="profile" class="btn btn-secondary btn-block">View/Edit Profile</a>
                                 </div>
                             </div>
                         </div>
@@ -317,18 +317,37 @@
                                 <h4 class="card-title">Some Recent Earnings</h4>
                                 
                             </div>
-                            <p class="card-category">
-                            List of last 10 earnings</p>
+                            
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-
+                        <div class="card">
+                          
+                            <div class="card-body">
                                 
-                                    
-                                </div>
-                               
+                                <table class="table table-head-bg-danger mt-4">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Ref Id</th>
+                                            <th scope="col">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for d in earningdata %}
+        <tr>
+           <td>{{ forloop.counter }}</td>
+            <td>{{ d.amount|floatformat:2 }}</td>
+            <td>{{ d.type }}</td>
+            <td>{{ d.ref_id }}</td>
+            <td>{{ d.date }}</td>
+                       </tr>
+                       {% endfor %} 
+                                    </tbody>
+                                </table>
                             </div>
+                            <div class="pull-right">
+    </div>
                         </div>
                     </div>
                 </div>

@@ -50,7 +50,8 @@ def dashboard(request):
     # print(totaldividend)
     referrals = Member.objects.filter(sponsor = request.user.username).count()
     photo = Kyc.objects.filter(userid=request.user.username)
-    context = {'username': request.user, 'userdata': data, 'photo': photo, 'earning':totearn, 'referrals':referrals, 'roi':roi}    
+    earningdata = Earning.objects.filter(userid=request.user.username)
+    context = {'username': request.user, 'userdata': data, 'earningdata':earningdata, 'photo': photo, 'earning':totearn, 'referrals':referrals, 'roi':roi}    
     return render(request,'dashboard.html', context)
 
 
