@@ -1,0 +1,84 @@
+
+{% load static %}
+{% block content %}
+{% include "header.html" %}
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+<form method="POST" action = "request_code">
+    {% csrf_token %}
+<div class="row">
+    <div class="col-md-12 col-lg-4 text-center" >
+        <div class="card card-info bg-danger-gradient">
+            <div class="card-body">
+                <h4 class="mb-1 fw-bold">USDT Address</h4>
+                <img src="{% static '/member/assets/img/qr.jpg' %}" class="img-fluid animated" alt="" width="200px" height="200px">
+                <div id="task-complte"><br>
+                    <h4>JSHYWRTshsjhjh&^762762878Skskjskjskw8782j</h4>
+                </div>
+            </div>
+        </div>
+        </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Send Code Request</div>
+                            <br>
+                            {% if messages %}
+                                {% for message in messages %}
+                                <div  {% if message.tags %} class=" {{ message.tags }} " {% endif %} role="alert"> {{ message }} </div>
+                                {% endfor %}                            
+                            {% endif %}
+
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="email2">Hash Type</label>
+                                
+                                <select class="form-control" name="type">
+                                    <option value="USDT">USDT</option>
+                                   
+                                </select>
+                                
+                                <!--<input type="text" name="hash"class="form-control" id="email2" placeholder="Enter Hash">-->
+                              
+                            </div>
+                           
+                           
+                           
+                            <div class="form-group">
+                                <label for="email2">Enter Hash</label>
+                                <input type="text" name="hash"class="form-control" id="email2" placeholder="Enter Hash">
+                              
+                            </div>
+
+                             <div class="form-group">
+                                <label for="email2">Amount</label>
+                                <input type="text" name="amount" class="form-control" id="email2" placeholder="Enter Amount">
+                              
+                            </div>
+                          
+                        </div>
+                        <div class="card-action">
+                            <input type="submit" class="btn btn-success"></button>
+                           
+                        </div>
+                    </div>
+              
+                </div>
+                 
+
+
+
+            
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

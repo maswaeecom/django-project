@@ -1,0 +1,85 @@
+{% block content %}
+{% include "header.html" %}
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+
+           <form method="post" action ="">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-12">
+
+                        <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Evacuate Earnings</div>
+                             <div>
+                                 
+                                {% if messages %}
+                                {% for message in messages %}
+                                <div  {% if message.tags %} class=" {{ message.tags }} " {% endif %} role="alert"> {{ message }} </div>
+                                {% endfor %}                            
+                            {% endif %}
+
+
+
+                             </div>
+                        </div>
+                        <div class="card-body">
+<!--                              
+     <button class="btn btn-success" name="submit" value="add">Stake Dividend</button>
+                             -->
+
+
+<div class="col-sm-6">
+    <br>
+    <h3>
+<strong style="color: #0cc745">Available Wallet Balance:
+    {% for balance in wallet %}
+    {% if balance.balance is None %}
+    {{ 0 }}
+    {% endif %}
+    
+    {% if balance.balance is not None %}
+    {{ balance.balance }}
+    {% endif %}
+    
+    {% endfor %}
+   
+
+</strong>
+</h3>
+
+<h3>
+<strong style="color: #0cc745">
+    <!--Total Evacuated:-->
+    </strong>
+</h3>
+<p>
+<label>Enter Amount to withdraw:</label>
+<br/>
+<h4>You have to withdraw minium: <?php echo config_item('currency') . config_item('min_withdraw') ?></h4>
+<input type="text" name="amount" required class="form-control" value="1"><br/>
+<button class="btn btn-success" name="submit" value="add">Withdraw</button>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+</form>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

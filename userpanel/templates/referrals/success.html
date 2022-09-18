@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login V3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/vendor/bootstrap/css/bootstrap.min.css' %}">
+
+    
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/vendor/animate/animate.css' %}">
+
+
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/vendor/css-hamburgers/hamburgers.min.css' %}">
+
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href=" {% static '/member/register/vendor/animsition/css/animsition.min.css' %}">
+
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/vendor/select2/select2.min.css' %}">
+
+    
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/vendor/daterangepicker/daterangepicker.css' %}">
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/css/util.css' %}">
+   
+    <link rel="stylesheet" type="text/css" href="{% static '/member/register/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+    
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('/static/member/register/images/bg-01.jpg')">
+            <div class="wrap-login100">
+                    <span class="login100-form-logo">
+                        <img
+                            style="max-width: 100px; max-height: 100px"
+                            src=""
+                            alt=""/>
+                    </span>
+
+                    <br>
+                   
+                    <h3 style="color:white; align-items: center;">Registration Successfull</h3><br>
+        <p style="color: white;">Dear {{ name }}<br/>
+        congratulation on your first step towards a rewarding career.</p><br>
+        <h4><strong>Sponsor ID :</strong> {{ sponsor }}</h4><br>
+       <h4> <strong>User ID :</strong> {{ userid }}</h4>
+
+<br>
+  <div class="container-login100-form-btn">
+                       
+                    </div>
+
+
+
+                      <div class="container-login100-form-btn">
+                       <a href="/loginUser" class="login100-form-btn">Login</a>
+                       
+
+                       <a href="/new_referral" class="login100-form-btn">Register Another</a>
+                    </div>
+                   
+
+            
+              
+            </div>
+        </div>
+    </div>
+
+ 
+
+
+    
+<!--===============================================================================================-->
+    <script src="{% static '/member/register/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+
+<!--===============================================================================================-->
+    <script src="{% static '/member/register/vendor/animsition/js/animsition.min.js' %}"></script>
+
+
+<!--===============================================================================================-->
+    <script src="{% static '/member/register/vendor/bootstrap/js/popper.js' %}"></script>
+
+
+    <script src="{% static '/member/register/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<!--===============================================================================================-->
+    <script src="{% static '/member/register/vendor/select2/select2.min.js' %}"></script>
+
+
+<!--===============================================================================================-->
+    <script src="{% static '/member/register/vendor/daterangepicker/moment.min.js' %}"></script>
+
+
+    <script src="{% static '/member/register/vendor/daterangepicker/daterangepicker.js' %}"></script>
+
+
+<!--===============================================================================================-->
+    <script src="{% static '/member/register/vendor/countdowntime/countdowntime.js' %}"></script>
+
+
+<!--===============================================================================================-->
+    <script src="{% static '/member/register/js/main.js' %}"></script>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+    function toogle_div(id1, id2) {
+        if ($(id2).prop("checked") == true) {
+            $(id1).hide('slow');
+        } else {
+            $(id1).show('slow');
+        }
+    }
+
+    function show() {
+        $('#form').hide('slow');
+        $('#load').show('slow');
+    }
+
+    function get_user_name(id, result) {
+        var id = $(id).val();
+        $.get("<?php echo site_url('site/get_user_name/') ?>" + id, function (data) {
+            $(result).html(data);
+        });
+    }
+</script>

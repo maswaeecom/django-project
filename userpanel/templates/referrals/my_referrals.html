@@ -1,0 +1,67 @@
+{% block content %}
+{% include "header.html" %}
+
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+<div class="row">
+                <div class="col-md-12">
+
+<div class="card">
+                        <div class="card-header">
+                            <div class="card-title">My Referrals</div>
+                        </div>
+                        <div class="card-body">
+                            
+                            <table class="table table-head-bg-primary mt-4">
+                                <thead>
+                                    <tr>
+                                       <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">User Id</th>
+                                        <th scope="col">Topup</th>
+
+                                        <th scope="col">Sponsor</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Business</th>
+                                        <th scope="col">Join Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for d in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.userid }}</td>
+         <td>{{ d.topup }}</td>
+        <td>{{ d.sponsor }}</td>
+        
+        
+        <td class="btn-sm">{{ d.status }}</td>
+        <td>Business</td>
+        
+        <td>{{ d.join_date }}</td>
+    </tr>
+{% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                       
+                    </div> 
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

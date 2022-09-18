@@ -1,0 +1,347 @@
+{% block content %}
+{% include "header.html" %}
+
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <div class="page-header">
+                <h4 class="page-title">Dashboard</h4>
+                
+                
+            </div>
+              <div class="row">
+                <div class="col-6">
+                    
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                    <div class="card card-stats card-round">
+                        <div class="card-body ">
+                            
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-primary bubble-shadow-small">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ml-3 ml-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Referrals</p>
+                                        <h4 class="card-title">{{ referrals }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="card card-stats card-round">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-icon">
+                                <div class="icon-big text-center icon-info bubble-shadow-small">
+                                    <i class="far fa-newspaper"></i>
+                                </div>
+                            </div>
+                            <div class="col col-stats ml-3 ml-sm-0">
+                                <div class="numbers">
+                                    <p class="card-category">Tokens</p>
+                                    {% for data in userdata %}
+                                    <h4 class="card-title">{{ data.tokens|floatformat:2 }}</h4>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+
+
+
+           <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+            <div class="card card-stats card-round">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-icon">
+                            <div class="icon-big text-center icon-success bubble-shadow-small">
+                                <i class="far fa-chart-bar"></i>
+                            </div>
+                        </div>
+                        <div class="col col-stats ml-3 ml-sm-0">
+                            <div class="numbers">
+                                
+                                <p class="card-category">Earning</p>
+                               
+                                <h4 class="card-title">{{ earning|floatformat:2 }}</h4>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+
+
+
+           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+          
+
+
+
+
+
+
+
+
+
+             <!-- <div class="row">
+                <div class="card card-secondary">
+                <div class="col-sm-12 col-md-12">
+                    
+                    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div id="coinmarketcap-widget-marquee" coins="1,1027,825,1958,3890,6636" currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>
+                </div>
+            </div>
+            </div> -->
+
+
+
+<!-- 
+                    <div class="card card-info bg-info-gradient">
+                        <div class="card-body">
+                            <h4 class="mb-1 fw-bold">Company TRX Address</h4>
+                            <div id="task-complte"><br>
+                                <h4>TBmAHVqnx9z7udGos3fzJ4JjWRYSVaG3sr</h4>
+                            </div>
+                        </div>
+                    </div> -->
+              
+
+
+
+
+
+
+
+                          
+
+
+
+
+
+
+
+            <div class="row">
+            {% for data in userdata %}
+                    <div class="col-md-4">
+                        <form method="POST" action="topup_account">
+                            {% csrf_token %}
+                            <div class="card card-secondary">
+                            
+                            {% if data.topup < 1 %}
+                             
+                                
+                            <div class="card-header">
+                                <div class="card-title">Account Detail</div>
+                                <div class="card-category"></div>
+                            </div>
+                              <div class="form-group">
+                                <h1>Topup Your Account</h1>
+                                <label for="email2" class="card-title">Activation Code</label>
+                                    <input type="text" name="topup" class="form-control" id="email2" placeholder="Enter Activation Code">
+                                </div>
+                                 <div class="form-group">
+                                    <button type="submit"
+                                        class="btn btn-success">Submit
+                                </button>
+                                  
+                                </div>
+                                
+
+
+                              
+                              {% else %}
+
+                              <div class="card-header">
+                                <div class="card-title">Account Detail</div>
+                                <div class="card-category"></div>
+                            </div>
+                            <div class="card-body pb-0">
+                                <div class="mb-1 mt-">
+                                    <h1>Topup: {{ data.topup }}</h1>
+                                    <h2>Dividend {{ roi }} Till Date</h2>                                    
+                                </div>                                
+                                <div class="pull-in">
+                                    <canvas id="dailySalesChart"></canvas>
+                                </div>
+                              </div>
+
+                              
+
+                              {% endif %}
+                        </div> 
+                        </form>                  
+                    </div>
+                {% endfor %}
+
+
+                {% for data in userdata %}
+                    <div class="col-md-4">
+                    <div class="card card-profile card-secondary">
+                        <!-- <div class="card-header" style="background-image: 'static/member/assets/img/blogpost.jpg'">
+                            <div class="profile-picture">
+                                <div class="avatar avatar-xl">
+                                    {% for p in photo %}
+                                    <img src="{{ p.photo.url }}" alt="..." class="avatar-img rounded-circle">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div> -->
+                         
+                        <div class="card-body">
+                          
+                            <div class="user-profile text-center">
+                                <div class="name">{{ data.name }}</div>
+                                <div class="job">Promoter</div>
+                                <div class="desc">I.D: {{data.userid}}</div>
+                                
+                                <div class="view-profile">
+                                    
+                                    <a href="" class="btn btn-secondary btn-block">View/Edit Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row user-stats text-center">
+                                <div class="col">
+                                    <div class="number">Join date</div>
+                                    <div class="title">{{ data.join_date }}</div>
+                                </div>
+                                <div class="col">
+                                    <div class="number">Sponsor</div>
+                                    <div class="title">{{data.sponsor }}</div>
+                                </div>
+                                <!-- <div class="col">
+                                    <div class="number">Status</div>
+                                    <div class="title">{{data.status}}</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+
+
+
+                {% for data in userdata %}
+                <div class="col-md-4">
+                <div class="card card-profile card-secondary">
+                    <!-- <div class="card-header" style="background-image: 'static/member/assets/img/blogpost.jpg'">
+                        <div class="profile-picture">
+                            <div class="avatar avatar-xl">
+                                {% for p in photo %}
+                                <img src="{{ p.photo.url }}" alt="..." class="avatar-img rounded-circle">
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="card-body" style="background: #35cd3a; border-radius:5px">
+                      
+                        <div class="user-profile text-center">
+                            <div class="name">{{ data.name }}</div>
+                            <div class="job">Promoter</div>
+                            <div class="desc">I.D: {{data.userid}}</div>
+                            
+                            <div class="view-profile">
+                                
+                                <a href="" class="btn btn-secondary btn-block">View/Edit Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="background: #35cd3a">
+                        <div class="row user-stats text-center">
+                            <div class="col">
+                                <div class="number">Join date</div>
+                                <div class="title">{{ data.join_date }}</div>
+                            </div>
+                            <div class="col">
+                                <div class="number">Sponsor</div>
+                                <div class="title">{{data.sponsor }}</div>
+                            </div>
+                            <!-- <div class="col">
+                                <div class="number">Status</div>
+                                <div class="title">{{data.status}}</div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+                
+            </div>
+            <div class="row row-card-no-pd">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-head-row">
+                                <h4 class="card-title">Some Recent Earnings</h4>
+                                
+                            </div>
+                            <p class="card-category">
+                            List of last 10 earnings</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                
+                                    
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+</div>
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

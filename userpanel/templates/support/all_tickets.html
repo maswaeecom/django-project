@@ -1,0 +1,61 @@
+{% block content %}
+{% include "header.html" %}
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+
+
+<p><a class="btn btn-success" href="<?php echo site_url('ticket/new-ticket') ?>">Create Ticket +</a></p>
+
+<div class="row">
+                <div class="col-md-12">
+
+                        <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">List Tickets</div>
+                        </div>
+                        <div class="card-body">
+
+
+<table class="table table-head-bg-primary mt-4">
+<tr>
+    <th scope="col">SN</th>
+    <th>Ticket Subject</th>
+    <th>Date</th>
+    <th style="background-color: #d6e9c6">Status</th>
+    <th>#</th>
+</tr>
+<?php
+$sn = 1;
+foreach ($data as $e) { ?>
+    <tr>
+        <td><?php echo $sn++; ?></td>
+        <td><?php echo $e->ticket_title; ?></td>
+        <td><?php echo $e->date; ?></td>
+        <td style="background-color: #d6e9c6"><?php echo $e->status; ?></td>
+        <td><a href="<?php echo site_url('ticket/view/' . $e->id) ?>" class="btn btn-xs btn-danger">View</a>
+        </td>
+    </tr>
+<?php } ?>
+</table>
+
+<div class="pull-right">
+<?php echo $this->pagination->create_links(); ?>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

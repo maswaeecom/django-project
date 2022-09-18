@@ -1,0 +1,53 @@
+{% extends "admin/base_site.html" %}
+
+{% load i18n %}
+
+
+{% block content %}
+
+<form method="post" action = "">
+    {% csrf_token %}
+<div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Closing</div>
+                            <br>
+                            {% if messages %}
+                                {% for message in messages %}
+                                <div  {% if message.tags %} class=" {{ message.tags }} " {% endif %} role="alert"> {{ message }} </div>
+                                {% endfor %}                            
+                            {% endif %}
+
+                        </div>
+                        <div class="card-body">
+                           
+                           
+                           
+                    
+                             <div class="form-group">
+                                <label for="email2">Type 'yes'</label>
+                                <input type="text" name="yes" class="form-control" id="email2" placeholder="Enter 'yes'">
+                              <br>
+                                <div class="card-action">
+                                    <input type="submit" class="btn btn-success"></button>
+                                   
+                                </div>
+                            </div>
+                          
+                        </div>
+                        
+                    </div>
+              
+                </div>
+                 
+
+
+
+            
+            </div>
+        </form>
+
+{% endblock %}
+

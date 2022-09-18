@@ -1,0 +1,61 @@
+{% block content %}
+{% include "header.html" %}
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+<div class="row">
+                <div class="col-md-12">
+
+<div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Used Activation Codes</div>
+                        </div>
+                        <div class="card-body">
+                            
+                            <table class="table table-head-bg-primary mt-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Activation Code</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Used By</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     <?php
+$sn = 1;
+foreach ($epin as $e) { ?>
+    <tr>
+        <td><?php echo $sn++; ?></td>
+        <td><?php echo $e['epin']; ?></td>
+        <td><?php echo $e['amount']; ?></td>
+        <td><?php echo config_item('ID_EXT') . $e['used_by']; ?></td>
+        <td><?php echo $e['used_time']; ?></td>
+       
+                   </tr>
+<?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pull-right">
+<?php echo $this->pagination->create_links(); ?>
+</div>
+                    </div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

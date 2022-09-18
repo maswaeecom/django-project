@@ -1,0 +1,302 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>RGNT (Reagon Token)</title>
+    <link href="{% static '/member/assets/img/icon.ico' %}"
+          rel="stylesheet" id="rt_style_components"
+          type="text/css"/>
+
+
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" href="{% static '/member/assets/img/icon.ico' %} " type="image/x-icon"/>
+
+
+    <script src="{% static '/member/assets/js/plugin/webfont/webfont.min.js' %}"></script>
+    <script>
+        WebFont.load({
+            google: {"families":["Open+Sans:300,400,600,700"]},
+            custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], 
+            urls: ['/static/member/assets/css/fonts.css']},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+
+    
+    <link rel="stylesheet" href="{% static '/member/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/member/assets/css/azzara.min.css' %}">
+
+    <link rel="stylesheet" href="{% static '/member/assets/css/demo.css' %}">
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <!--
+            Tip 1: You can change the background color of the main header using: data-background-color="blue | purple | light-blue | green | orange | red"
+        -->
+        <div class="main-header" data-background-color="purple">
+            <!-- Logo Header -->
+            <div class="logo-header">
+                
+                <a href="" class="logo mt-4">
+                    <h1 style="color: white;">Token</h1>
+                </a>
+                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-bars"></i>
+                    </span>
+                </button>
+                <button class="topbar-toggler more"><i class="fa fa-ellipsis-v"></i></button>
+                <div class="navbar-minimize">
+                    <button class="btn btn-minimize btn-rounded">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- End Logo Header -->
+
+            <!-- Navbar Header -->
+            <nav class="navbar navbar-header navbar-expand-lg">
+                
+                <div class="container-fluid">
+                    <div class="collapse" id="search-nav">
+                        <form class="navbar-left navbar-form nav-search mr-md-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-search pr-1">
+                                        <i class="fa fa-search search-icon"></i>
+                                    </button>
+                                </div>
+                                <input type="text" placeholder="Search ..." class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+                        <li class="nav-item toggle-nav-search hidden-caret">
+                            <a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                       
+                  
+                     
+                        
+                    </ul>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            
+            <div class="sidebar-background"></div>
+            <div class="sidebar-wrapper scrollbar-inner">
+                <div class="sidebar-content">
+                    <div class="user">
+                        <!-- <div class="avatar-sm float-left mr-2">
+                            <img src="<?php echo base_url('uploads') ?>/user.png" alt="..." class="avatar-img rounded-circle">
+                        </div> -->
+                        <div class="info">
+                            <a data-toggle="collapse" href="#" aria-expanded="rue">
+                                <span>
+                                 
+                                   <span class="user-level">Login ID: {{ username.username }}</span>
+                                    </span>
+                                    
+                                    <span class="caret"></span>
+                                </span>
+                            </a>
+                            <div class="clearfix"></div>
+
+                         
+                        </div>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item active">
+                            <a href="/dashboard">
+                                <i class="fas fa-home"></i>
+                                <p>Dashboard</p>
+                                
+                            </a>
+                        </li>
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Access</h4>
+                        </li>
+
+
+
+
+                        
+
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#profile">
+                                <i class="fas fa-users"></i>
+                                <p>Profile</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="profile">
+                                <ul class="nav nav-collapse">
+                                    
+                                    <li>
+                                        <a href="/profile">
+                                            <span class="sub-item">My Profile</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/kyc">
+                                            <span class="sub-item">KYC</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo site_url('member/settings') ?>">
+                                            <span class="sub-item">Settings</span>
+                                        </a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#base">
+                                <i class="fas fa-layer-group"></i>
+                                <p>Topup Codes</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="base">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="/request_code">
+                                            <span class="sub-item">Request Code</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/unused_codes">
+                                            <span class="sub-item">List of Codes</span>
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="/used_codes">
+                                            <span class="sub-item">Used Codes</span>
+                                        </a>
+                                    </li> -->
+                                    
+                                    <!--<li>-->
+                                    <!--    <a href="<?php echo site_url('member/generate_epin') ?>">-->
+                                    <!--        <span class="sub-item">Generate Codes</span>-->
+                                    <!--    </a>-->
+                                    <!--</li>-->
+                                    
+                                   
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#forms">
+                                <i class="fas fa-pen-square"></i>
+                                <p>My Earnings</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="forms">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="/obtain_earnings">
+                                            <span class="sub-item">Earning</span>
+                                        </a>
+                                    </li>
+
+                                     <li>
+                                        <a href="#">
+                                            <span class="sub-item">Search</span>
+                                        </a>
+                                    </li>
+
+                                     <li>
+                                        <a href="evacuate">
+                                            <span class="sub-item">Withdraw</span>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="collapse" href="#tables">
+                                <i class="fas fa-sitemap"></i>
+                                <p>Referrals</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="tables">
+                                <ul class="nav nav-collapse">
+                                     <li>
+                                        <a href="/new_referral" target="_blank">
+                                            <span class="sub-item">Add Referral</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/my_referrals">
+                                            <span class="sub-item">My Referrals</span>
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="<?php echo site_url('tree/generation-tree') ?>">
+                                            <span class="sub-item">Referral Tree</span>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a data-toggle="collapse" href="#maps">
+                                <i class="fas fa-desktop"></i>
+                                <p>Support</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="maps">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="/new_ticket">
+                                            <span class="sub-item">New Request</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/all_tickets">
+                                            <span class="sub-item">List Requests</span>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                        -->
+                        
+                        <li class="nav-item">
+                            <a href="/logoutuser">
+                                <i class="fas fa-desktop"></i>
+                                <p>Log Out</p>
+                               
+                            </a>
+                        </li>
+                      
+                   
+                    </ul>
+                </div>
+            </div>
+        </div>

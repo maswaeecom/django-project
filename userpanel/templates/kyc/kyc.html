@@ -1,0 +1,136 @@
+{% block content %}
+{% include "header.html" %}
+
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <form action="kyc" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">KYC System</div>
+                          
+                        </div>
+                        <div class="card-body">
+                           
+
+                             <div class="form-group">
+                               <label>Upload ID Proof</label>
+                             <input type="file" class="form-control" name="id_proof" required>
+                              
+                            </div>
+
+
+                              <div class="form-group">
+                                <label>Upload Address Proof</label>
+                                <input type="file" class="form-control" name="add_proof" required>
+                              
+                            </div>
+
+
+
+                              <div class="form-group">
+                                <label>Upload Photo</label>
+                                <input type="file" class="form-control" name="photo" required>
+                              
+                            </div>
+
+
+                             <div class="form-group">
+                               <label>Current Password</label>
+                                <input type="password" class="form-control" name="oldpass" required>
+                            </div>
+                          
+                        </div>
+                        <div class="card-action">
+                            <input type="submit" class="btn btn-suc cess">
+                           
+                        </div>
+                    </div>
+              
+                </div>
+
+
+
+
+                {% for d in data %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Documents</div>
+                           
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+
+                                <div class="avatar-xl float-left mr-2">
+                                    <label>Photo</label>
+                                <a href="{{ d.photo.url }}" target="_blank"><img src="{{ d.photo.url }}" alt="..." class="avatar-img"></a>
+                            </div>
+                              
+                            </div>
+
+
+                            
+                          
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="form-group">
+
+                                <div class="avatar-xl float-left mr-2">
+                                    <label>ID Proof</label>
+                                <a href="{{ d.id_proof.url }}" target="_blank"><img src="{{ d.id_proof.url }}" alt="..." class="avatar-img"></a>
+                            </div>
+                              
+                            </div>
+
+
+                            
+                          
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="form-group">
+
+                                <div class="avatar-xl float-left mr-2">
+                                    <label>Address Proof</label>
+
+                                <a href="{{ d.address_proof.url }}" target="_blank"><img src="{{ d.address_proof.url }}" alt="..." class="avatar-img">
+                                </a>
+                            </div>
+                              
+                            </div>
+
+
+                            
+                          
+                        </div><br><br>
+                        
+                    </div>
+              
+                </div>
+                 
+
+
+                {% endfor %}
+
+
+
+            
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}

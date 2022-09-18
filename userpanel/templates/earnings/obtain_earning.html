@@ -1,0 +1,56 @@
+{% block content %}
+{% include "header.html" %}
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+<div class="row">
+                <div class="col-md-12">
+
+<div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Obtain Earnings</div>
+                        </div>
+                        <div class="card-body">
+                            
+                            <table class="table table-head-bg-danger mt-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Ref Id</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for d in data %}
+    <tr>
+       <td>{{ forloop.counter }}</td>
+        <td>{{ d.amount|floatformat:2 }}</td>
+        <td>{{ d.type }}</td>
+        <td>{{ d.ref_id }}</td>
+        <td>{{ d.date }}</td>
+                   </tr>
+                   {% endfor %} 
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pull-right">
+</div>
+                    </div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+{% include "footer.html" %}
+
+{% endblock %}
