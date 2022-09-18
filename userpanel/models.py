@@ -1,7 +1,4 @@
-from datetime import datetime, timedelta, timezone, tzinfo
 import random
-from tkinter import CASCADE
-from xmlrpc.client import TRANSPORT_ERROR
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User
