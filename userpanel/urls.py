@@ -26,4 +26,4 @@ urlpatterns = [
     path('loginUser',views.loginUser, name = 'loginUser'),
     path('logoutuser',views.logoutUser, name = 'logouruser'),
     path('validate_username', views.validate_username, name='validate_username'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
