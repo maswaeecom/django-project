@@ -236,7 +236,8 @@ def validate_username(request):
     return JsonResponse(data)
 
 def new_referral(request):
-    
+    id = request.GET.get('id')
+    print(id)
     if request.method=="POST":
         name = request.POST.get('name')
         sponsor = request.POST.get('sponsor')

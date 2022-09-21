@@ -277,34 +277,26 @@
                     <div class="card-body" style="background: #35cd3a; border-radius:5px">
                       
                         <div class="user-profile text-center">
-                            <div class="name">{{ data.name }}</div>
-                            <div class="job">Promoter</div>
-                            <div class="desc">I.D: {{data.userid}}</div>
+                            <div class="name">Referral Link</div>
+                            <a href="#" style="color:white">https://rgntoken.com/register/?id/{{ data.userid }}</a>
                             
-                            <div class="view-profile">
-                                
-                                <a href="" class="btn btn-secondary btn-block">View/Edit Profile</a>
-                            </div>
                         </div>
+                        <br><br><br><br>
                     </div>
+                    
                     <div class="card-footer" style="background: #35cd3a">
                         <div class="row user-stats text-center">
                             <div class="col">
-                                <div class="number">Join date</div>
-                                <div class="title">{{ data.join_date }}</div>
+                               <h5>Now you can share referral link with your friends</h5>
                             </div>
-                            <div class="col">
-                                <div class="number">Sponsor</div>
-                                <div class="title">{{data.sponsor }}</div>
-                            </div>
-                            <!-- <div class="col">
-                                <div class="number">Status</div>
-                                <div class="title">{{data.status}}</div>
-                            </div> -->
+                           
+                          
                         </div>
                     </div>
+                    
                 </div>
             </div>
+            
             {% endfor %}
 
                 
