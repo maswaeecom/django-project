@@ -244,7 +244,7 @@ def new_referral(request):
         #staking = request.POST.get('stake')
         # name = request.POST.get('country')
         password = request.POST.get('password')
-        userid= random.randint(2345678909800, 9923456789000)
+        userid= random.randint(23456789, 99234567)
         join_date = datetime.datetime.now()
         status = 'Not Active'
 
